@@ -21,6 +21,14 @@ public static void isBothRoman(String[] expression){
     boolean isRoman2 = InputCheck.romCheck2(expression);
                                                             //Ловим исключение, когда имеется только одна римская цифра
     try {
+        if (expression[2].contains("+")) {
+            throw new IllegalArgumentException("fioj "+"\uD83D\uDEA8");
+        }
+    } catch (IllegalArgumentException e) {
+        System.err.println(e.getMessage());
+        System.exit(0);
+    }
+    try {
         if ((isRoman0 && !isRoman2) || (!isRoman0 && isRoman2)) {
             throw new IllegalArgumentException("Введите только римские или только арабские цифры "+"\uD83D\uDEA8");
         }
@@ -28,6 +36,7 @@ public static void isBothRoman(String[] expression){
         System.err.println(e.getMessage());
         System.exit(0);
     }
+
 }
                                                             //Проверяем возможность парсить в Int
     public static boolean isParsable(String input) {
@@ -38,5 +47,6 @@ public static void isBothRoman(String[] expression){
             System.err.println("Римские цифры - это не весь алфавит!"+"\uD83E\uDD26");
             return false;
         }
+
     }
 }

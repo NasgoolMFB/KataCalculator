@@ -1,4 +1,15 @@
 public class Calculator {
+    public static void start(){
+        // Получаем результат вида:   String[] expressionSplit = {"5", "+", "6"};
+        String[] expressionSplit = Init.splitUserInput(Init.getInput());
+
+        char operator = expressionSplit[1].charAt(0);
+        boolean isRoman0 = InputCheck.romCheck0(expressionSplit);
+        boolean isRoman2 = InputCheck.romCheck2(expressionSplit);
+
+        InputCheck.isBothRoman(expressionSplit);
+        Calculator.printResult(expressionSplit,operator, isRoman0, isRoman2);
+    }
     public static int calculate(int num0, int num2, char operator) {
         int result = 0;
         switch (operator) {
